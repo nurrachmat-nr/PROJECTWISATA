@@ -78,7 +78,14 @@
             }
         }
     </style>
-
+    <script>
+        function hapusPemesanan(id){
+            var konfirmasi = confirm("Apakah anda yakin akan menghapus data ini?");
+            if(konfirmasi){
+                window.location.href = "proseshapuspemesanan.php?id="+id;
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.bootstrap4.css">
 </head>
 <body>
@@ -137,6 +144,11 @@
 
             <div class="row">
                 <div class="col-md-12">
+                <?php if(isset($_GET['status']) && $_GET['status'] == "1") : ?>
+                <div class="alert alert-success" role="alert">
+                  Data berhasil dihapus!
+                </div>
+                <?php endif; ?>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
@@ -166,15 +178,14 @@
                             <td><?php echo cekStatus($value['penginapan']);?></td>
                             <td><?php echo cekStatus($value['transportasi']);?></td>
                             <td><?php echo cekStatus($value['makanan']);?></td>
-                            <td><?php echo $value['diskon'];?></td>
+                            <td><?php echo rp($value['diskon']);?></td>
                             <td><?php echo rp($value['total_harga']);?></td>
                             <td><?php echo konversiTanggal($value['created_at']);?></td>
                             <td>
-                                <a href="hapuspendaftaran.php?id=<?php echo $value['id'];?>" class="btn btn-danger">
+                                <button class="btn btn-danger" type="button" onClick="hapusPemesanan(<?php echo $value['id']; ?>)">
                                 <i class="fa fa-trash"></i>
                                 Hapus </a>
                             </td>
-
                         </tr>
                         <?php endforeach; ?>
                         

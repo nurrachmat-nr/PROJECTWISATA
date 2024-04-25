@@ -78,6 +78,34 @@
             }
         }
     </style>
+    <script>
+        function updateTotalHarga() {
+            // Mengumpulkan nilai-nilai dari opsi checkbox dan input lainnya
+            var jumlahPeserta = parseInt(document.getElementById("jumlahPeserta").value);
+            var durasiPerjalanan = parseInt(document.getElementById("durasiPerjalanan").value);
+            var penginapan = document.getElementById("penginapan").checked;
+            var transportasi = document.getElementById("transportasi").checked;
+            var makanan = document.getElementById("makanan").checked;
+
+            // Logika perhitungan total harga, dapat disesuaikan dengan kebutuhan
+            var hargaPaket = 1000000; // Harga paket dasar
+            var hargaPenginapan = penginapan ? 200000 : 0;
+            var hargaTransportasi = transportasi ? 150000 : 0;
+            var hargaMakanan = makanan ? 100000 : 0;
+            var diskonPeserta = (jumlahPeserta >= 5) ? 0.1 * hargaPaket : 0;
+            var diskonDurasi = (durasiPerjalanan >= 7) ? 0.05 * hargaPaket : 0;
+            var diskon = diskonPeserta + diskonDurasi;
+
+            // Perhitungan total harga
+            var totalHarga = hargaPaket + hargaPenginapan + hargaTransportasi + hargaMakanan - diskon;
+
+            document.getElementById("diskon").value = diskon;
+
+            console.log(`Total Harga : ${totalHarga}`);
+            // Memperbarui tampilan total harga pada elemen dengan ID 'totalHarga'
+            document.getElementById("totalHarga").value = totalHarga;
+        }
+    </script>
 </head>
 <body>
     <!-- start banner Area -->
@@ -130,43 +158,86 @@
                     <h5 class="card-title">Form Pemesanan Paket Wisata</h5>
                     </div>
                     <div class="card-body">
-                    <form>
+                    <form action="prosespemesanan.php" method="POST">
                         <div class="form-group">
                         <label for="namaPemesan">Nama Pemesan</label>
-                        <input type="text" class="form-control" id="namaPemesan" placeholder="Masukkan nama pemesan">
+                        <input type="text" class="form-control" id="namaPemesan" name="nama_pemesan" placeholder="Masukkan nama pemesan">
                         </div>
                         <div class="form-group">
                         <label for="noHpTelp">No HP / Telp</label>
-                        <input type="text" class="form-control" id="noHpTelp" placeholder="Masukkan nomor HP / telp">
+                        <input type="text" class="form-control" id="noHpTelp" name="nomor_hp" placeholder="Masukkan nomor HP / telp">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                         <label for="tanggalPemesanan">Tanggal Pemesanan (dd/mm/yyyy)</label>
-                        <input type="date" class="form-control" id="tanggalPemesanan" placeholder="Masukkan tanggal pemesanan">
-                        </div>
+                        <input type="date" class="form-control" id="tanggalPemesanan" name="tanggal_pemesanan" placeholder="Masukkan tanggal pemesanan">
+                        </div> -->
                         <div class="form-group">
                         <label for="durasiPerjalanan">Durasi Perjalanan (hari)</label>
-                        <input type="number" class="form-control" id="durasiPerjalanan" placeholder="Masukkan durasi perjalanan">
+                        <input type="number" class="form-control" id="durasiPerjalanan" name="durasi_perjalanan" placeholder="Masukkan durasi perjalanan">
                         </div>
                         <div class="form-group">
                         <label for="jumlahPeserta">Jumlah Peserta</label>
-                        <input type="number" class="form-control" id="jumlahPeserta" placeholder="Masukkan jumlah peserta">
+                        <input type="number" class="form-control" id="jumlahPeserta" name="jumlah_peserta" placeholder="Masukkan jumlah peserta">
                         </div>
                         
                         <div class="form-group">
-                        <label for="paketWisata">Paket Wisata</label>
-                        <select class="form-control" id="paketWisata">
-                            <option>Paket Tour Ke Bali ...</option>
-                            <option>4 HARI 3 MALAM ... CUMA 1.9 JUTA</option>
-                            <!-- Add other package options here -->
-                        </select>
+                            <label>Opsi Tambahan:</label><br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Penginapan" id="penginapan" name="penginapan" onClick="updateTotalHarga()">
+                                <label class="form-check-label" for="penginapan">
+                                    Penginapan
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Transportasi" id="transportasi" name="transportasi" onClick="updateTotalHarga()">
+                                <label class="form-check-label" for="transportasi">
+                                    Transportasi
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Makanan" id="makanan" name="makanan" onClick="updateTotalHarga()">
+                                <label class="form-check-label" for="makanan">
+                                    Makanan
+                                </label>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="jumlahPeserta">Jumlah Peserta</label>
-                            <input type="number" class="form-control" id="jumlahPeserta" placeholder="Masukkan jumlah peserta">
+                        <label for="diskon">Diskon</label>
+                        <input class="form-control" id="diskon" name="diskon" placeholder="Diskon" readonly>
                         </div>
+
+                        <div class="form-group">
+                        <label for="totalHarga">Total Harga</label>
+                        <input class="form-control" id="totalHarga" name="total_harga" placeholder="Total Harga" readonly>
+                        </div>
+
+
+                        <script>
+                            // Menambahkan event listener untuk input jumlah peserta dan durasi perjalanan
+                            document.getElementById("jumlahPeserta").addEventListener("input", updateTotalHarga);
+                            document.getElementById("durasiPerjalanan").addEventListener("input", updateTotalHarga);
+                        </script>
+
+                        <!-- <script>
+                            // Mendapatkan referensi ke setiap opsi checkbox
+                            var penginapanCheckbox = document.getElementById("penginapan");
+                            var transportasiCheckbox = document.getElementById("transportasi");
+                            var makananCheckbox = document.getElementById("makanan");
+
+                            // Menambahkan event listener untuk setiap opsi checkbox
+                            penginapanCheckbox.addEventListener("change", updateTotalHarga);
+                            transportasiCheckbox.addEventListener("change", updateTotalHarga);
+                            makananCheckbox.addEventListener("change", updateTotalHarga);
+
+                            // Menambahkan event listener untuk input jumlah peserta dan durasi perjalanan
+                            document.getElementById("jumlahPeserta").addEventListener("input", updateTotalHarga);
+                            document.getElementById("durasiPerjalanan").addEventListener("input", updateTotalHarga);
+                        </script> -->
+
+                    
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <button type="button" class="btn btn-secondary">Reset</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
                     </form>
                     </div>
                 </div>
@@ -225,4 +296,5 @@
 
         });
     </script>
+    
 </html>

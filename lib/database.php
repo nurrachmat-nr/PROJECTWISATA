@@ -26,25 +26,51 @@ class Database {
 
 	//digunakan untuk menginsert data ke database
 	public function insertData($table, $data = array()){
-		try {
-			// prepare sql and bind parameters
-			$column = array_keys($data);
-			$cols = [];
-			foreach($column as $col){
-				$cols[] = ":".$col;
-			}	
-			$stmt = $this->db->prepare("INSERT INTO $table (".implode(",", $column).")
-			VALUES (".implode(",", $cols).")");
-			foreach($columns as $key=>$val){
-				$stmt->bindParam(':'.$key, $$val);
+		$nama = $data['nama_pemesan'];
+		$nomor_hp = $data['nomor_hp'];
+		$durasi = $data['durasi'];
+		$jumlah_peserta = $data['jumlah_peserta'];
+		$penginapan = $data['penginapan'];
+		$transportasi = $data['transportasi'];
+		$makanan = $data['makanan'];
+		$diskon = $data['diskon'];
+		$total_harga = $data['total_harga'];
 
-			}	
-			$stmt->execute();
+
+		$query = "INSERT INTO tbl_transaksi (nama_pemesan, nomor_hp, durasi, jumlah_peserta, penginapan, transportasi, makanan, diskon, total_harga) VALUES ('$nama', '$nomor_hp', $durasi, $jumlah_peserta, $penginapan, $transportasi, $makanan, $diskon, $total_harga)";
+    	// Eksekusi query
+		
+		try {
+			$result = $this->db->exec($query);
+		
+			if($this->db->lastInsertId() > 0){
+				return true;
+			} else {
+				return "Error: " . $sql . "<br>" . $conn->error;
+			}
+		} catch (\PDOException $e) {
+        	return "Insert failed: " . $e->getMessage();
+        }
+		
+		// try {
+		// 	// prepare sql and bind parameters
+		// 	$column = array_keys($data);
+		// 	$cols = [];
+		// 	foreach($column as $col){
+		// 		$cols[] = ":".$col;
+		// 	}
+		// 	$stmt = $this->db->prepare("INSERT INTO $table (".implode(",", $column).")
+		// 	VALUES (".implode(",", $cols).")");
+		// 	foreach($columns as $key=>$val){
+		// 		$stmt->bindParam(':'.$key, $$val);
+
+		// 	}	
+		// 	$stmt->execute();
 		  
-			return true;
-		} catch(PDOException $e) {
-			return $e->getMessage();
-		}
+		// 	return true;
+		// } catch(PDOException $e) {
+		// 	return $e->getMessage();
+		// }
 	}
 
 	//digunakan untuk menginsert data ke database
@@ -94,7 +120,7 @@ class Database {
 			$this->db->exec($sql);
 			return true;
 		} catch(PDOException $e) {
-			return $e->getMessage();
+			return false;
 		}
 	}
 	
