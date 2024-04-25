@@ -103,8 +103,8 @@
                             Pemesanan
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="generic.html">Form Pemesanan</a>
-                                <a class="dropdown-item" href="elements.html">Daftar Pemesanan</a>
+                                <a class="dropdown-item" href="formpemesanan.php">Form Pemesanan</a>
+                                <a class="dropdown-item" href="daftarpemesanan.php">Daftar Pemesanan</a>
                             </div>
                         </li>
                     </ul>
