@@ -114,15 +114,15 @@
         </nav>
         <!-- End Header Area -->				
     </section>
-
     
     <?php 
-            $wisata  = [
-                ['judul' => 'Pulau Kemaro', 'deskripsi' => 'Pulau Kemaro adalah salah satu destinasi wisata populer di Palembang, Sumatera Selatan. Pulau ini merupakan delta kecil di Sungai Musi, sekitar 6 kilometer dari Jembatan Ampera. Pulau Kemaro dikenal sebagai tempat rekreasi dan wisata religi', 'gambar' =>'https://www.rumah123.com/seo-cms/assets/Pagoda_4475a0c17c/Pagoda_4475a0c17c.jpg'],
-                ['judul' => 'Benteng Kuto Besak', 'deskripsi' => 'Benteng Kuto Besak (BKB) merupakan salah satu tempat bersejarah yang ada di Kota Palembang. Berlokasi didaerah 19 Ilir, Bukit Kecil, Kota Palembang dan terletak di pinggir Sungai Musi. Mempunyai panjang 288,75 meter dan tinggi 9,99 meter serta tebal 1,99meter.', 'gambar' =>'https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/02/24/benteng-kuto-besak-4193764320.jpeg'],
-                ['judul' => 'Jakabaring Sport City (JSC)', 'deskripsi' => 'Jakabaring Sport City (JSC) adalah kompleks olahraga di Kota Palembang, Sumatera Selatan, Indonesia, yang luasnya 355 Ha. JSC merupakan destinasi wisata olahraga dan memiliki berbagai objek wisata.', 'gambar' =>'https://images.bisnis.com/posts/2018/10/22/851893/stadion-jakabaring.jpg'],
-            ];
-            ?>
+        //array list wisata
+        $wisata  = [
+            ['judul' => 'Pulau Kemaro', 'deskripsi' => 'Pulau Kemaro adalah salah satu destinasi wisata populer di Palembang, Sumatera Selatan. Pulau ini merupakan delta kecil di Sungai Musi, sekitar 6 kilometer dari Jembatan Ampera. Pulau Kemaro dikenal sebagai tempat rekreasi dan wisata religi', 'gambar' =>'https://www.rumah123.com/seo-cms/assets/Pagoda_4475a0c17c/Pagoda_4475a0c17c.jpg'],
+            ['judul' => 'Benteng Kuto Besak', 'deskripsi' => 'Benteng Kuto Besak (BKB) merupakan salah satu tempat bersejarah yang ada di Kota Palembang. Berlokasi didaerah 19 Ilir, Bukit Kecil, Kota Palembang dan terletak di pinggir Sungai Musi. Mempunyai panjang 288,75 meter dan tinggi 9,99 meter serta tebal 1,99meter.', 'gambar' =>'https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/02/24/benteng-kuto-besak-4193764320.jpeg'],
+            ['judul' => 'Jakabaring Sport City (JSC)', 'deskripsi' => 'Jakabaring Sport City (JSC) adalah kompleks olahraga di Kota Palembang, Sumatera Selatan, Indonesia, yang luasnya 355 Ha. JSC merupakan destinasi wisata olahraga dan memiliki berbagai objek wisata.', 'gambar' =>'https://images.bisnis.com/posts/2018/10/22/851893/stadion-jakabaring.jpg'],
+        ];
+    ?>
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <?php foreach($wisata as $idx => $item) : ?>
