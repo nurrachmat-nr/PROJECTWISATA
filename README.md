@@ -1,19 +1,19 @@
 # Project Wisata Palembang 
 
-### About
+### Tentang
 Ini adalah aplikasi pemesanan pariwisata Palembang
 
-### Contribute
+### Kontributor
 - Nur Rachmat
 - Yohannes
 
-### Features
+### Fitur
 - [x] Daftar Pariwisata Palembang
 - [x] Form Tambah Pemesanan
 - [x] Daftar Pemesanan
 - [x] Hapus Pemesanan
 
-### Libraries
+### Pustaka Pendukung
 - [x] Bootstrap
 - [x] Magnific Popup
 - [x] DataTables
