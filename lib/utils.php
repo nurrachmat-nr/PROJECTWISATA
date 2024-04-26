@@ -46,4 +46,32 @@ function konversiTanggal($date){
 function rp($nominal){
     return "Rp " . number_format($nominal, 2, ",", ".");
 }
+
+/**
+     * Fungsi untuk menulis pesan log pada file txt
+     *
+     * @param string $pesan
+*/
+function writeLog($pesan) {
+    // Mengambil waktu saat ini
+    $timestamp = date('Y-m-d H:i:s');
+
+    // Format pesan log
+    $logMessage = "[{$timestamp}] {$pesan}" . PHP_EOL;
+
+    // Membuka file
+    if (!$handle = fopen("./logs/log.txt", 'a')) {
+        // gagal membuka file
+        die('Failed to open log file for writing.');
+    }
+
+    // Menulis pesan log ke dalam file text
+    if (fwrite($handle, $logMessage) === FALSE) {
+        // gagal menulis pesan log
+        die('Failed to write to log file.');
+    }
+
+    // Menutup file handle
+    fclose($handle);
+}
 ?>

@@ -1,6 +1,7 @@
 <?php
 // Include koneksi ke database
 include("lib/database.php");
+include("lib/utils.php");
 
 // Membuat objek database
 $db = new Database();
@@ -37,11 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $db->insertData("tbl_transaksi", $data);
     // Periksa apakah data berhasil disimpan atau tidak
     if ($result === true) {
+        writeLog("Form berhasil disubmit");
         // Redirect ke halaman daftar pemesanan dengan pesan sukses
         header("Location: daftarpemesanan.php");
         exit;
     }
 } else {
+    writeLog("Form gagal disubmit");
     echo "Form gagal disubmit";
 }
 ?>

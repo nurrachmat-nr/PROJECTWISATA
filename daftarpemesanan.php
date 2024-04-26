@@ -100,7 +100,7 @@
         <!-- Start Header Area -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     Wisata Palembang
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,8 +109,8 @@
     
                 <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li  class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                        <li  class="nav-item"><a class="nav-link" href="#paketwisata">Paket Wisata</a></li>
+                        <li  class="nav-item"><a class="nav-link" href="index.php#home">Home</a></li>
+                        <li  class="nav-item"><a class="nav-link" href="index.php#paketwisata">Paket Wisata</a></li>
     
                         <!-- Dropdown -->
                         <li class="nav-item dropdown">
