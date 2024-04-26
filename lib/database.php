@@ -48,29 +48,9 @@ class Database {
 			} else {
 				return "Error: " . $sql . "<br>" . $conn->error;
 			}
-		} catch (\PDOException $e) {
+		} catch (PDOException $e) {
         	return "Insert failed: " . $e->getMessage();
         }
-		
-		// try {
-		// 	// prepare sql and bind parameters
-		// 	$column = array_keys($data);
-		// 	$cols = [];
-		// 	foreach($column as $col){
-		// 		$cols[] = ":".$col;
-		// 	}
-		// 	$stmt = $this->db->prepare("INSERT INTO $table (".implode(",", $column).")
-		// 	VALUES (".implode(",", $cols).")");
-		// 	foreach($columns as $key=>$val){
-		// 		$stmt->bindParam(':'.$key, $$val);
-
-		// 	}	
-		// 	$stmt->execute();
-		  
-		// 	return true;
-		// } catch(PDOException $e) {
-		// 	return $e->getMessage();
-		// }
 	}
 
 	//digunakan untuk menginsert data ke database
@@ -94,11 +74,6 @@ class Database {
 
 	//digunakan untuk mengambil list data dari database
 	public function getListData($table){
-		//execute the query
-		//$data = $this->db->query($query);
-		//convert result resource to array
-		//return $data->fetchAll(PDO::FETCH_ASSOC);
-
 		$stmt = $this->db->prepare("SELECT * FROM $table order by id asc"); 
 		$stmt->execute(); 
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -123,7 +98,6 @@ class Database {
 			return false;
 		}
 	}
-	
 }
 
 ?>

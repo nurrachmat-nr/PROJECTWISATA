@@ -85,6 +85,12 @@
                 window.location.href = "proseshapuspemesanan.php?id="+id;
             }
         }
+        function updatePemesanan(id){
+            var konfirmasi = confirm("Apakah anda yakin akan mengupdate data ini?");
+            if(konfirmasi){
+                window.location.href = "prosesupdatepemesanan.php?id="+id;
+            }
+        }
     </script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.bootstrap4.css">
 </head>
@@ -182,7 +188,10 @@
                             <td><?php echo rp($value['total_harga']);?></td>
                             <td><?php echo konversiTanggal($value['created_at']);?></td>
                             <td>
-                                <button class="btn btn-danger" type="button" onClick="hapusPemesanan(<?php echo $value['id']; ?>)">
+                                <button class="btn btn-primary" type="button" onClick="updatePemesanan(<?php echo $value['id']; ?>)">
+                                <i class="fa fa-pencil"></i>
+                                Update </a>
+                                <button class="btn btn-danger" type="button" onClick="hapusPemesanan(<?php echo $value['id']; ?>)" style="margin-left: 10px;">
                                 <i class="fa fa-trash"></i>
                                 Hapus </a>
                             </td>
