@@ -181,7 +181,9 @@
         <div class="overlay overlay-bg"></div>
         <div class="container">
             <div class="video-content">
-                <a href="https://www.youtube.com/watch?v=R-vaEMRH7qE" class="play-btn"><img src="https://themewagon.github.io/adventure/img/play-btn.png" alt=""></a>
+                <a href="https://www.youtube.com/watch?v=R-vaEMRH7qE" class="play-btn">
+                    <img src="https://themewagon.github.io/adventure/img/play-btn.png" alt="">
+                </a>
                 <div class="video-desc">
                     <h3 class="h2 text-white text-uppercase">Bagaimana rasanya menikmati pempek di kota asalnya, Palembang?</h3>
                     <h4 class="text-white">Inilah empat dari sekian rumah makan di kota Palembang.</h4>
