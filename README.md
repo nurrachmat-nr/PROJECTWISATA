@@ -29,6 +29,8 @@ Ini adalah aplikasi pemesanan pariwisata Palembang
 │   └── **/*.js
 ├── lib
 │   └── **/*.php
+├── logs
+│   └── log.txt
 ├── index.php
 ├── daftarpemesanan.php
 ├── formpemesanan.php
