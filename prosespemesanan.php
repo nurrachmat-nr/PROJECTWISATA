@@ -1,7 +1,7 @@
 <?php
 // Include koneksi ke database
-include("lib/database.php");
-include("lib/utils.php");
+include ("lib/database.php");
+include ("lib/utils.php");
 
 // Membuat objek database
 $db = new Database();
@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Ambil nilai-nilai dari form
     $nama_pemesan = $_POST["nama_pemesan"];
     $nomor_hp = $_POST["nomor_hp"];
-    // $tanggal_pemesanan = $_POST["tanggal_pemesanan"];
     $durasi_perjalanan = $_POST["durasi_perjalanan"];
     $jumlah_peserta = $_POST["jumlah_peserta"];
     $paket_wisata = $_POST["paket_wisata"];

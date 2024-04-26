@@ -1,12 +1,11 @@
-$(document).ready(function(){
-    "use strict";
+$(document).ready(function () {
+  "use strict";
 
-    $('.play-btn').magnificPopup({
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        removalDelay: 160,
-        preloader: false,
-        fixedContentPos: false
-    });
-
+  $(".play-btn").magnificPopup({
+    type: "iframe",
+    mainClass: "mfp-fade",
+    removalDelay: 160,
+    preloader: false,
+    fixedContentPos: false,
+  });
 });
