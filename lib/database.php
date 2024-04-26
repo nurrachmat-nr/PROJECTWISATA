@@ -48,7 +48,7 @@ class Database
 			if ($this->db->lastInsertId() > 0) {
 				return true;
 			} else {
-				return "Error: " . $sql . "<br>" . $conn->error;
+				return "Error: " . $query . "<br>" . $this->db->error;
 			}
 		} catch (PDOException $e) {
 			return "Insert failed: " . $e->getMessage();
